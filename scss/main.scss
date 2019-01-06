@@ -14,7 +14,7 @@ body {
 body {
   @include background;
   background-color: $primary-color;
-  color: #fff;
+  color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -79,4 +79,37 @@ main {
   }
 }
 
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bio-image {
+  height: 250px;
+  width: 220px;
+  margin: auto;
+  border-radius: 50%;
+  border: $secondary-color 3px solid;
+  grid-area: bioimage;
+}
+
+.bio {
+  grid-area: bio;
+}
+
+.job-1 {
+  grid-area: job1;
+}
+
+.job-2 {
+  grid-area: job2;
+}
+
+.job-3 {
+  grid-area: job3;
+}
 @import "mobile";
