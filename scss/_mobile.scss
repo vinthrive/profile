@@ -1,15 +1,15 @@
 //Widescreens
 @include mediaXl {
-  .projects{
-    grid-template-columns: repeat(4, 1fr); 
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 //Desktop
 @include mediaLg {
-  .projects{
-    grid-template-columns: repeat(3, 1fr); 
-  }  
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 //Tablets
@@ -49,20 +49,20 @@
     }
   }
 
-  .about-info{
-      grid-template-areas: 
-      'bioimage'
-      'bio'
-      'job1'
-      'job2'
-      'job3';
+  .about-info {
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
 
-      grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 
-  .projects{
-    grid-template-columns: repeat(2, 1fr); 
-  }  
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 //Smartphones
 @include mediaSm {
@@ -86,7 +86,20 @@
     }
   }
 
-  .projects{
-    grid-template-columns: repeat(1, 1fr); 
-  }  
+  main {
+    .lg-heading {
+      font-size: 4rem;
+    }
+  }
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .boxes {
+    div {
+      font-size: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
 }

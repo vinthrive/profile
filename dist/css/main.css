@@ -40,7 +40,6 @@
     opacity: 0.9;
     margin: 0;
     padding: 0;
-    background: #373737;
     background: #00262d;
     list-style: none;
     transform: translate3d(0, -100%, 0);
@@ -279,7 +278,7 @@ main {
       width: 150px;
       height: 150px; }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr; }
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
@@ -296,5 +295,11 @@ main {
   main#home h3.sm-heading {
     margin-bottom: 1rem;
     line-height: 1; }
+  main .lg-heading {
+    font-size: 4rem; }
   .projects {
-    grid-template-columns: repeat(1, 1fr); } }
+    grid-template-columns: repeat(1, 1fr); }
+  .boxes div {
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; } }
