@@ -33,7 +33,6 @@ function toggleMenu() {
   }
 }
 
-
 //Copied code from https://codepen.io/quasimondo/pen/lDdrF
 var colors = new Array(
   [62, 35, 255],
@@ -41,10 +40,11 @@ var colors = new Array(
   [255, 35, 98],
   [45, 175, 230],
   [255, 0, 255],
-  [255, 128, 0]);
+  [255, 128, 0]
+);
 
 var step = 0;
-//color table indices for: 
+//color table indices for:
 // current color left
 // next color left
 // current color right
@@ -53,9 +53,8 @@ var colorIndices = [0, 1, 2, 3];
 
 //transition speed
 var gradientSpeed = 0.002;
-console.log("debug 500");
+
 function updateGradient() {
-  console.log("debug function");
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
   var c1_0 = colors[colorIndices[2]];
@@ -74,9 +73,14 @@ function updateGradient() {
 
   let homeOverlay = homeBody.getElementsByClassName("overlay")[0];
 
-  homeOverlay.style.background = "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))";
-  homeOverlay.style.background = "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)";
-
+  homeOverlay.style.background =
+    "-webkit-gradient(linear, left top, right top, from(" +
+    color1 +
+    "), to(" +
+    color2 +
+    "))";
+  homeOverlay.style.background =
+    "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)";
 
   step += gradientSpeed;
   if (step >= 1) {
@@ -86,10 +90,15 @@ function updateGradient() {
 
     //pick two new target color indices
     //do not pick the same as the current one
-    colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-
+    colorIndices[1] =
+      (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) %
+      colors.length;
+    colorIndices[3] =
+      (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) %
+      colors.length;
   }
 }
 
-setInterval(updateGradient, 10);
+if (homeBody != undefined) {
+  setInterval(updateGradient, 10);
+}
