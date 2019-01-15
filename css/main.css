@@ -108,7 +108,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover; }
-    body#bg-img:after {
+    body#bg-img .overlay {
       content: "";
       position: absolute;
       top: 0;
