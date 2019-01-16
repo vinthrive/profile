@@ -252,6 +252,37 @@ main {
         .projects .item .item-image:hover .middle .fas {
           color: #eece1a;
           transition: all 0.5s ease-out; }
+    .projects .item .item-wrapper {
+      position: relative; }
+      .projects .item .item-wrapper .item-overview {
+        height: 100%;
+        width: 100%;
+        padding: 1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #005060;
+        padding: 1rem;
+        border-bottom: #eece1a 5px solid;
+        transform: scale(0, 1);
+        overflow: hidden; }
+        .projects .item .item-wrapper .item-overview.show-overview {
+          transform: scale(1, 1);
+          z-index: 21;
+          transition: all 0.5s ease-out; }
+      .projects .item .item-wrapper .item-overview-btn-close {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        transform: scale(0, 1);
+        cursor: pointer; }
+        .projects .item .item-wrapper .item-overview-btn-close.item-overview-btn-close-show {
+          transition: all 0.5s ease-out;
+          transform: scale(1, 1);
+          z-index: 21; }
+          .projects .item .item-wrapper .item-overview-btn-close.item-overview-btn-close-show:hover {
+            color: #eece1a;
+            transition: all 0.5s ease-out; }
 
 .boxes {
   display: flex;
@@ -272,14 +303,15 @@ main {
       .boxes div:hover span {
         color: #000; }
 
-.btn, .btn-dark, .btn-light {
+.btn, .btn-dark, .btn-light, .btn-secondary {
   display: block;
   padding: 0.5rem 1rem;
   border: 0;
   margin-bottom: 0.3rem; }
-  .btn:hover, .btn-dark:hover, .btn-light:hover {
+  .btn:hover, .btn-dark:hover, .btn-light:hover, .btn-secondary:hover {
     background: #eece1a;
-    color: #000; }
+    color: #000;
+    cursor: pointer; }
 
 .btn-dark {
   background: black;
@@ -288,6 +320,10 @@ main {
 .btn-light {
   background: #46e2ff;
   color: #333; }
+
+.btn-secondary {
+  background: white;
+  color: #0e0d0d; }
 
 #main-footer {
   text-align: center;

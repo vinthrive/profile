@@ -5,6 +5,9 @@ const menuNav = document.querySelector(".menu-nav");
 const menuBranding = document.querySelector(".menu-branding");
 const navItems = document.querySelectorAll(".nav-item");
 const homeBody = document.querySelector("#bg-img");
+const workBtnOverview = document.querySelectorAll(
+  ".item .item-wrapper .btn-overview"
+);
 
 //Set Initial State of menu
 let showMenu = false;
@@ -101,4 +104,30 @@ function updateGradient() {
 
 if (homeBody != undefined) {
   setInterval(updateGradient, 10);
+}
+
+if (workBtnOverview.length > 0) {
+  console.log(`workBtnOverview.length = ${workBtnOverview.length}`);
+  let btnOverview;
+  for (let ctr = 0; ctr < workBtnOverview.length; ctr++) {
+    console.log(`counter = ${ctr}`);
+    btnOverview = workBtnOverview[ctr];
+
+    btnOverview.onclick = function() {
+      console.log("button InnerHTML = " + this.innerHTML);
+      let itemWrapper = this.parentElement;
+      console.log("itemWrapper = " + itemWrapper.innerHTML);
+      let itemOverview = itemWrapper.querySelector(".item-overview");
+      let itemOverviewClose = itemWrapper.querySelector(
+        ".item-overview-btn-close"
+      );
+      itemOverview.classList.add("show-overview");
+      itemOverviewClose.classList.add("item-overview-btn-close-show");
+
+      itemOverviewClose.onclick = function() {
+        itemOverview.classList.remove("show-overview");
+        itemOverviewClose.classList.remove("item-overview-btn-close-show");
+      };
+    };
+  }
 }
