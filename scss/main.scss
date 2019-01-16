@@ -202,12 +202,49 @@ main {
         }
       }
     }
+    .item-wrapper {
+      position: relative;
+
+      .item-overview {
+        height: 100%;
+        width: 100%;
+        padding: 1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: lighten($primary-color, 5);
+        padding: 1rem;
+        border-bottom: $secondary-color 5px solid;
+        transform: scale(0, 1);
+        overflow: hidden;
+
+        &.show-overview {
+          transform: scale(1, 1);
+          z-index: 21;
+          @include easeOut;
+        }
+      }
+
+      .item-overview-btn-close {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        transform: scale(0, 1);
+        cursor: pointer;
+
+        &.item-overview-btn-close-show {
+          @include easeOut;
+          transform: scale(1, 1);
+          z-index: 21;
+
+          &:hover {
+            color: $secondary-color;
+            @include easeOut;
+          }
+        }
+      }
+    }
   }
-  // img:hover {
-  //   opacity: 0.9;
-  //   border-color: $secondary-color;
-  //   @include easeOut;
-  // }
 }
 
 // Contact Page
@@ -246,6 +283,7 @@ main {
   &:hover {
     background: $secondary-color;
     color: set-text-color($secondary-color);
+    cursor: pointer;
   }
 }
 
@@ -261,6 +299,11 @@ main {
   color: #333;
 }
 
+.btn-secondary {
+  @extend .btn;
+  background: lighten($secondary-color, 50);
+  color: rgb(14, 13, 13);
+}
 #main-footer {
   text-align: center;
   padding: 1rem;
