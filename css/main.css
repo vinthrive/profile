@@ -140,7 +140,7 @@ a {
 
 header {
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   width: 100%; }
 
 .text-secondary {
@@ -253,7 +253,8 @@ main {
           color: #eece1a;
           transition: all 0.5s ease-out; }
     .projects .item .item-wrapper {
-      position: relative; }
+      position: relative;
+      overflow: hidden; }
       .projects .item .item-wrapper .item-overview {
         height: 100%;
         width: 100%;
@@ -261,24 +262,28 @@ main {
         position: absolute;
         top: 0;
         left: 0;
+        transform: translate3d(100%, 0, 0);
         background: #005060;
         padding: 1rem;
         border-bottom: #eece1a 5px solid;
-        transform: scale(0, 1);
+        transition: all 0.5s ease-out;
         overflow: hidden; }
         .projects .item .item-wrapper .item-overview.show-overview {
-          transform: scale(1, 1);
+          transform: translate3d(0, 0, 0);
           z-index: 21;
           transition: all 0.5s ease-out; }
       .projects .item .item-wrapper .item-overview-btn-close {
         position: absolute;
         top: 0;
         right: 10px;
-        transform: scale(0, 1);
-        cursor: pointer; }
+        transform: translate3d(100%, 0, 0);
+        visibility: hidden;
+        cursor: pointer;
+        transition: all 0.5s ease-out; }
         .projects .item .item-wrapper .item-overview-btn-close.item-overview-btn-close-show {
           transition: all 0.5s ease-out;
-          transform: scale(1, 1);
+          visibility: visible;
+          transform: translate3d(0, 0, 0);
           z-index: 21; }
           .projects .item .item-wrapper .item-overview-btn-close.item-overview-btn-close-show:hover {
             color: #eece1a;
