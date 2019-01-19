@@ -10,6 +10,9 @@ const oHomeLink = document.querySelector('.nav-item a[href="index.html"]');
 const oAboutLink = document.querySelector('.nav-item a[href="about.html"]');
 const oWorkLink = document.querySelector('.nav-item a[href="work.html"]');
 const oContactLink = document.querySelector('.nav-item a[href="contact.html"]');
+const oItemOverview = document.querySelectorAll(
+  ".item .item-wrapper .item-overview"
+);
 const workBtnOverview = document.querySelectorAll(
   ".item .item-wrapper .btn-overview"
 );
@@ -136,6 +139,23 @@ if (workBtnOverview.length > 0) {
         itemOverview.classList.remove("show-overview");
         itemOverviewClose.classList.remove("item-overview-btn-close-show");
       };
+    };
+  }
+}
+
+if (oItemOverview.length > 0) {
+  let oOverview;
+
+  for (let ctr = 0; ctr < oItemOverview.length; ctr++) {
+    oOverview = oItemOverview[ctr];
+
+    oOverview.onclick = function() {
+      let itemWrapper = this.parentElement;
+      let itemOverviewClose = itemWrapper.querySelector(
+        ".item-overview-btn-close"
+      );
+
+      itemOverviewClose.click();
     };
   }
 }
