@@ -131,6 +131,7 @@ main {
 
     .item-image {
       position: relative;
+      overflow: hidden;
 
       img {
         width: 100%;

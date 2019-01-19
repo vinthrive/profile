@@ -1,10 +1,15 @@
 //Select DOM items
+const oBody = document.querySelector("body");
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu");
 const menuNav = document.querySelector(".menu-nav");
 const menuBranding = document.querySelector(".menu-branding");
 const navItems = document.querySelectorAll(".nav-item");
 const homeBody = document.querySelector("#bg-img");
+const oHomeLink = document.querySelector('.nav-item a[href="index.html"]');
+const oAboutLink = document.querySelector('.nav-item a[href="about.html"]');
+const oWorkLink = document.querySelector('.nav-item a[href="work.html"]');
+const oContactLink = document.querySelector('.nav-item a[href="contact.html"]');
 const workBtnOverview = document.querySelectorAll(
   ".item .item-wrapper .btn-overview"
 );
@@ -13,7 +18,10 @@ const workBtnOverview = document.querySelectorAll(
 let showMenu = false;
 
 menuBtn.addEventListener("click", toggleMenu);
-
+menuBranding.onclick = fClickMenuBtn;
+menuNav.onclick = fClickMenuBtn;
+menuBranding.onkeypress = fClickMenuBtn;
+menuBtn.onkeypress = fClickMenuBtn;
 function toggleMenu() {
   if (!showMenu) {
     menuBtn.classList.add("close");
@@ -21,7 +29,7 @@ function toggleMenu() {
     menuNav.classList.add("show");
     menuBranding.classList.add("show");
     navItems.forEach(item => item.classList.add("show"));
-
+    // oHomeLink.focus();
     //Set Menu State
     showMenu = true;
   } else {
@@ -34,6 +42,10 @@ function toggleMenu() {
     //Set Menu State
     showMenu = false;
   }
+}
+
+function fClickMenuBtn() {
+  menuBtn.click();
 }
 
 //Copied code from https://codepen.io/quasimondo/pen/lDdrF
@@ -107,16 +119,12 @@ if (homeBody != undefined) {
 }
 
 if (workBtnOverview.length > 0) {
-  console.log(`workBtnOverview.length = ${workBtnOverview.length}`);
   let btnOverview;
   for (let ctr = 0; ctr < workBtnOverview.length; ctr++) {
-    console.log(`counter = ${ctr}`);
     btnOverview = workBtnOverview[ctr];
 
     btnOverview.onclick = function() {
-      console.log("button InnerHTML = " + this.innerHTML);
       let itemWrapper = this.parentElement;
-      console.log("itemWrapper = " + itemWrapper.innerHTML);
       let itemOverview = itemWrapper.querySelector(".item-overview");
       let itemOverviewClose = itemWrapper.querySelector(
         ".item-overview-btn-close"
@@ -129,5 +137,52 @@ if (workBtnOverview.length > 0) {
         itemOverviewClose.classList.remove("item-overview-btn-close-show");
       };
     };
+  }
+}
+
+let codeset = {
+  Escape: false,
+  Alt: false,
+  "1": false,
+  "2": false,
+  "3": false,
+  "4": false
+};
+
+oBody.onkeydown = fBodyKeyDown;
+oBody.onkeyup = fBodyKeyUp;
+
+function fBodyKeyDown(event) {
+  console.log("keydown event.key = " + event.key);
+
+  if (event.key in codeset) {
+    codeset[event.key] = true;
+
+    if (codeset["Escape"]) {
+      fClickMenuBtn();
+      return;
+    } else if (codeset["Alt"]) {
+      if (codeset["1"]) {
+        oHomeLink.click();
+        return;
+      } else if (codeset["2"]) {
+        oAboutLink.click();
+        return;
+      } else if (codeset["3"]) {
+        oWorkLink.click();
+        return;
+      } else if (codeset["4"]) {
+        oContactLink.click();
+        return;
+      }
+    }
+  }
+}
+
+function fBodyKeyUp(event) {
+  console.log("keyup event.key = " + event.key);
+  // Reset key
+  if (event.key in codeset) {
+    codeset[event.key] = false;
   }
 }
