@@ -203,7 +203,8 @@ main {
   .projects .item {
     position: relative; }
     .projects .item .item-image {
-      position: relative; }
+      position: relative;
+      overflow: hidden; }
       .projects .item .item-image img {
         width: 100%;
         border: 3px #fff solid;
@@ -339,11 +340,11 @@ main {
 
 @media screen and (min-width: 1171px) {
   .projects {
-    grid-template-columns: repeat(4, 1fr); } }
+    grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .projects {
-    grid-template-columns: repeat(3, 1fr); } }
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 768px) {
   main {
@@ -352,7 +353,7 @@ main {
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem;
-      font-size: 5rem; }
+      font-size: 4rem; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -376,7 +377,9 @@ main {
     .about-info p {
       font-size: 1rem; }
   .projects {
-    grid-template-columns: repeat(2, 1fr); } }
+    grid-template-columns: repeat(2, 1fr); }
+    .projects .item {
+      text-align: left; } }
 
 @media screen and (max-width: 500px) {
   main#home h1 {
@@ -384,11 +387,12 @@ main {
   main#home h1.lg-heading,
   main#home h2.lg-heading,
   main#home h3.lg-heading {
-    font-size: 5rem; }
+    font-size: 2rem; }
   main#home h1.sm-heading,
   main#home h2.sm-heading,
   main#home h3.sm-heading {
     margin-bottom: 1rem;
+    font-size: 1rem;
     line-height: 1; }
   main .lg-heading {
     font-size: 4rem; }
