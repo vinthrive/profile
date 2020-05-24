@@ -151,11 +151,11 @@ if (oItemOverview.length > 0) {
 
     oOverview.onclick = function() {
       let itemWrapper = this.parentElement;
-      let itemOverviewClose = itemWrapper.querySelector(
-        ".item-overview-btn-close"
-      );
+      // let itemOverviewClose = itemWrapper.querySelector(
+      //   ".item-overview-btn-close"
+      // );
 
-      itemOverviewClose.click();
+      // itemOverviewClose.click();
     };
   }
 }
